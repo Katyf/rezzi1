@@ -1,25 +1,20 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :update, :destroy]
 
-  # GET /videos
-  # GET /videos.json
   def index
-    @videos = video.all
+    @videos = Video.all
 
     render json: @videos
   end
 
-  # GET /videos/1
-  # GET /videos/1.json
   def show
-    render json: @video
+    @video = Video.find(params[:id])
+    render json: @video, status: :ok
   end
 
-  # POST /videos
-  # POST /videos.json
   def create
     @user = User.find(params[:user_id])
-    @video = video.new(video_params)
+    @video = Video.new(video_params)
     @user.videos << @video
 
     if @video.save
@@ -29,10 +24,8 @@ class VideosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /videos/1
-  # PATCH/PUT /videos/1.json
   def update
-    @video = video.find(params[:id])
+    @video = Video.find(params[:id])
 
     if @video.update(video_params)
       head :no_content
@@ -41,8 +34,6 @@ class VideosController < ApplicationController
     end
   end
 
-  # DELETE /videos/1
-  # DELETE /videos/1.json
   def destroy
     @video.destroy
 
@@ -52,7 +43,7 @@ class VideosController < ApplicationController
   private
 
     def set_video
-      @video = video.find(params[:id])
+      @video = Video.find(params[:id])
     end
 
     def video_params

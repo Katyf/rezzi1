@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20161101011226) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
+    t.string   "token"
     t.boolean  "admin"
     t.string   "bio"
     t.string   "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "videos", force: :cascade do |t|

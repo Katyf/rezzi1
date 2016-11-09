@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :videos
-  has_many :photos
   has_secure_password
 
   before_create :set_token
+  has_many :videos
+  has_many :photos
 
   private
     def set_token

@@ -15,4 +15,4 @@ testvideo = Video.create!(name: 'video title', link:'google.com', final: true)
 testphoto = Photo.create!(name: 'video title', src:'google.com')
 
 test.videos << testvideo
-test.links << testphoto
+test.photos << testphoto

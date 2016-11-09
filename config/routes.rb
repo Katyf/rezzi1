@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     resources :bio, except: [:new, :edit]
   end
 
-  post '/login', to: 'users#login'
-  get '/logout', to: 'users#logout'
   get 'amazon/sign_key'
 
 end

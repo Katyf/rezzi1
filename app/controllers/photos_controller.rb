@@ -1,25 +1,19 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :update, :destroy]
 
-  # GET /photos
-  # GET /photos.json
   def index
-    @photos = photo.all
-
+    @photos = Photo.all
     render json: @photos
   end
 
-  # GET /photos/1
-  # GET /photos/1.json
   def show
-    render json: @photo
+    @photo = Photo.find(params[:id])
+    render json: @image, status: :ok
   end
 
-  # POST /photos
-  # POST /photos.json
   def create
     @user = User.find(params[:user_id])
-    @photo = photo.new(photo_params)
+    @photo = Photo.new(photo_params)
     @user.photos << @photo
 
     if @photo.save
@@ -29,10 +23,8 @@ class PhotosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /photos/1
-  # PATCH/PUT /photos/1.json
   def update
-    @photo = photo.find(params[:id])
+    @photo = Photo.find(params[:id])
 
     if @photo.update(photo_params)
       head :no_content
@@ -41,8 +33,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  # DELETE /photos/1
-  # DELETE /photos/1.json
   def destroy
     @photo.destroy
 
@@ -52,10 +42,10 @@ class PhotosController < ApplicationController
   private
 
     def set_photo
-      @photo = photo.find(params[:id])
+      @photo = Photo.find(params[:id])
     end
 
     def photo_params
-      params.require(:photo).permit(:name, :link, :User_id)
+      params.require(:photo).permit(:name, :src, :User_id)
     end
 end

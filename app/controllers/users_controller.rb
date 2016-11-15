@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, only: [:index]
+  before_filter :authenticate, except: [:index]
 
 
   def sign_in
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :token, :admin, :bio, :video)
+    params.require(:user).permit(:name, :email, :password)
   end
 
 end

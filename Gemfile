@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'rails-api'
 gem 'bcrypt'
@@ -9,7 +7,7 @@ gem 'spring', :group => :development
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'rack-cors'
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem "active_model_serializers", "~> 0.9.0"
 gem 'nokogiri'
 group :development, :test do
   gem 'capybara'
@@ -18,7 +16,6 @@ group :development, :test do
   gem 'lol_dba'
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.1.0'
-  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'

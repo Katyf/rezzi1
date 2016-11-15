@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20161101011226) do
 
   create_table "videos", force: :cascade do |t|
     t.string  "name"
-    t.string  "link"
+    t.string  "src"
     t.boolean "final"
     t.integer "user_id"
   end

@@ -1,4 +1,4 @@
-class PostSerializer < ActiveModel::Serializer
-  attributes :id, :name, :link, :final
+class VideoSerializer < ActiveModel::Serializer
+  attributes :id, :name, :src, :final
   belongs_to :user
 end

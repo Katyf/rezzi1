@@ -11,7 +11,7 @@ Photo.destroy_all
 
 test = User.create!(name: 'test', email: 'test@test.com', password: 'test', admin: false, bio: 'blahblah blah blah', video:'google.com')
 
-testvideo = Video.create!(name: 'video title', link:'google.com', final: true)
+testvideo = Video.create!(name: 'video title', src:'google.com', final: true)
 testphoto = Photo.create!(name: 'video title', src:'google.com')
 
 test.videos << testvideo
